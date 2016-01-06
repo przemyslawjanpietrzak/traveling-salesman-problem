@@ -1,1 +1,1 @@
-points_count = 9
+points_count = 50

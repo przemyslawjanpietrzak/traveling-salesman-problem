@@ -1,4 +1,4 @@
-from multi_fragment.data import get_road
+from multi_fragment.data1 import get_road
 from get_distances import get_distances_from_points
 
 

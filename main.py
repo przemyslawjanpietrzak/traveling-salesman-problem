@@ -9,7 +9,7 @@ from get_distances import get_distances_from_points
 import pprint
 
 distances = get_distances_from_points()
-pprint.pprint(distances)
+# pprint.pprint(distances)
 
 
 start_time = time.time()
@@ -21,11 +21,11 @@ y = najblizszy_sasiad(distances)
 print("najblizszy_sasiad --- %s seconds ---" % (time.time() - start_time))
 
 
-start_time = time.time()
-z = brudforce(distances)
-print("brudforce --- %s seconds ---" % (time.time() - start_time))
-
+# start_time = time.time()
+# z = brudforce(distances)
+# print("brudforce --- %s seconds ---" % (time.time() - start_time))
+#
 
 print('multi_fragment', x)
 print('najblizszy_sasiad', y)
-print('brudforce', z)
+# print('brudforce', z)
