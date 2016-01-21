@@ -2,7 +2,6 @@ from itertools import permutations
 from brudforce.data import get_road
 
 from settings import points_count
-# print list(permutations(lst))
 
 def get_distance(distances):
     lst = range(1, points_count)

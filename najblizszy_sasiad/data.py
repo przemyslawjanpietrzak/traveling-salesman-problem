@@ -14,5 +14,5 @@ def get_road(distances):
         visited_places.append(nearest_place_index)
         total_distance += distances[current_location][nearest_place_index] #  min instead of item
         current_location = nearest_place_index
-    total_distance += distances[current_location][Home] #  back to home
+    total_distance += distances[current_location][Home] # back to home
     return total_distance

@@ -1,16 +1,21 @@
-def diff(a, b):
-    return [aa for aa in a if aa not in b]
+import math
+
+def find_last_road(roads_all, roads_visited):
+    for road in roads_all:
+        if road not in roads_visited:
+            return road
 
 
 def get_shortest_road(distances, roads_visited_x, roads_visited_y):
-    min = 9999999999
+    min = Ellipsis
     x = 0
     y = 0
+    j = 0  # start
     for i, item in enumerate(distances):
-        if i in roads_visited_x:
+        if i in roads_visited_x and j in roads_visited_y:
             continue
         for j, item1 in enumerate(item[:i]):
-            if j in roads_visited_y:
+            if j in roads_visited_y and i in roads_visited_x:
                 continue
             if item1 and item1 < min and not is_hamilton(i, j, roads_visited_x, roads_visited_y):
                 min = item1
@@ -40,14 +45,8 @@ def get_road(distances):
         roads_visited_y.append(shortest_road['y'])
         total_distance += shortest_road['value']
 
-    # print roads_visited_x, roads_visited_y, diff(range(len(distances)), roads_visited_x), diff(range(len(distances)), roads_visited_y)
-    # shortest_road = get_shortest_road(distances, roads_visited_x, roads_visited_y, allow_hamilton=True)
-    # roads_visited_x.append(shortest_road['x'])
-    # roads_visited_y.append(shortest_road['y'])
-    # total_distance += shortest_road['value']
-
-    last_road_x = diff(range(len(distances)), roads_visited_x)[0]
-    last_road_y = diff(range(len(distances)), roads_visited_y)[0]
+    last_road_x = find_last_road(range(len(distances)), roads_visited_x)
+    last_road_y = find_last_road(range(len(distances)), roads_visited_y)
     last_road_distance = distances[last_road_x][last_road_y]
     total_distance += last_road_distance
     return total_distance
